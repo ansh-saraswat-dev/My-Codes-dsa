@@ -1,1 +1,1 @@
-Solving DSA questions from leetcode in vs code with leetcode extension.
+Solving DSA questions .
