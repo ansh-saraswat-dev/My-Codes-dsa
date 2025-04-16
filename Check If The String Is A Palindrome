@@ -1,0 +1,23 @@
+#include <bits/stdc++.h> 
+bool checkPalindrome(string s) {
+    string filtered = "";
+
+    // Keep only lowercase alphanumeric characters
+    for (char c : s) {
+        if (isalnum(c)) {
+            filtered += tolower(c);
+        }
+    }
+
+    // Two pointer check
+    int st = 0, e = filtered.length() - 1;
+    while (st < e) {
+        if (filtered[st] != filtered[e]) {
+            return false;
+        }
+        st++;
+        e--;
+    }
+
+    return true;
+}
