@@ -19,25 +19,25 @@ public:
         // return false;
 
         // OR
-        // ListNode *curr =head;
-        // ListNode *temp=NULL;
-        // while(curr){
-        //     if(curr->next== temp) return true;
-        //     ListNode *next=curr->next;
-        //     curr->next=temp;
-        //     curr=next;
-        // }
-        // return false;
+        ListNode *curr =head;
+        ListNode *temp=new ListNode(-1);
+        while(curr){
+            if(curr->next== temp) return true;
+            ListNode *next=curr->next;
+            curr->next=temp;
+            curr=next;
+        }
+        return false;
 
         // OR
         //floyd's algo
-        ListNode *slow=head;
-        ListNode *fast=head;
-        while(fast and fast->next){
-            slow=slow->next;
-            fast=fast->next->next;
-            if(slow==fast) return true;
-        }
-        return false;
+        // ListNode *slow=head;
+        // ListNode *fast=head;
+        // while(fast and fast->next){
+        //     slow=slow->next;
+        //     fast=fast->next->next;
+        //     if(slow==fast) return true;
+        // }
+        // return false;
     }
 };
