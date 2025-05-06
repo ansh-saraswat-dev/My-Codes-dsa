@@ -1,22 +1,18 @@
 class Solution {
-public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
-        vector<vector<int>>ans;
-        if(root==NULL) return ans;
-        queue<TreeNode *>q;
-        q.push(root);
-        while(!q.empty()){
-            int size=q.size();
-            vector<int>temp;
-            for(int i=0;i<size;i++){
-                TreeNode *node = q.front();
-                q.pop();
-                temp.push_back(node->val);
-                if(node->left) q.push(node->left);
-                if(node->right) q.push(node->right);
-            }
-            ans.push_back(temp);
+  public:
+    void solve(Node *root,vector<int>&ans,int lev){
+        if(root==NULL) return;
+        if(lev==ans.size()) {
+            ans.push_back(root->data);
+            
         }
-    return ans;
+        solve(root->left,ans,lev+1);
+        solve(root->right,ans,lev+1);
+    }
+    vector<int> leftView(Node *root) {
+        // code here
+        vector<int>ans;
+        solve(root,ans,0);
+        return ans;
     }
 };
