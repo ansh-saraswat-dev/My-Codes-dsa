@@ -3,23 +3,23 @@ public:
     bool isValid(string s) {
         stack<char> str;
         for(int i=0;i<s.length();i++){
-            char ch= s[i];
-            if(ch=='(' || ch=='{' || ch=='['){
+            char ch=s[i];
+            if(ch=='{' || ch=='[' || ch=='('){
                 str.push(ch);
             }
             else{
                 if(!str.empty()){
-                    char top=str.top();
-                    if((ch==')' && top=='(')|| (ch=='}' && top=='{') || (ch==']' && top=='[')){
-                        str.pop();
-                    }
-                    else{
-                        return false;
-                    }
+                char top=str.top();
+                if(top=='{' && ch=='}' || top=='[' && ch==']' || top=='(' && ch==')'){
+                    str.pop();        
                 }
-            else{
-                return false;
-            }
+                else{
+                    return false;
+                }
+                }
+                else{
+                    return false;
+                }
             }
         }
         if(str.empty()){
